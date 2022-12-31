@@ -9,11 +9,15 @@ version = "0.1.0"
 StatsBase = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
 Distances= "b4f34e82-e78d-54a5-968a-f98e89d6e8f7"	
 VectorizedStatistics = "3b853605-1c98-4422-8364-4bd93ee0529e"
+Accumulators = "dfa2bc4b-4f41-456b-b06b-8999b58af168"
+MovingRings = "3594f790-2b65-4114-995e-a369a7faa39f"
 
 [compat]
 StatsBase = "~0.33"
 Distances = "~0.10"
 VectorizedStatistics = "~0.51"
+Accumulators = "~0.1"
+MovingRings = "~0.1"
 julia = "1.9.0-beta2"
 
 [extras]
