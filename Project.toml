@@ -1,0 +1,25 @@
+name = "RollOverData.jl"
+uuid = "8e5f5ac9-b367-4c09-ba43-dee536866b7a"
+repo = "github.com/JeffreySarnoff/RollOverData.jl.git"
+authors = ["Jeffrey Sarnoff <jeffrey.sarnoff@gmail.com>", "other contributors"]
+license = "MIT"
+version = "0.1.0"
+
+[deps]
+StatsBase = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
+Distances= "b4f34e82-e78d-54a5-968a-f98e89d6e8f7"	
+VectorizedStatistics = "3b853605-1c98-4422-8364-4bd93ee0529e"
+
+[compat]
+StatsBase = "~0.33"
+Distances = "~0.10"
+VectorizedStatistics = "~0.51"
+julia = "1.9.0-beta2"
+
+[extras]
+StatsBase = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["StatsBase", "Test"]
+
