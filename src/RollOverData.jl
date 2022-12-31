@@ -16,7 +16,7 @@ export Seq, seq,
        cor, crosscor, corkendall, corspearman,
        cov, crosscov,
        crossentropy,
-       psnrm
+       psnrm, gkldiv
 
 using StatsBase, VectorizedStatistics,
       Accumulators, MovingRings
