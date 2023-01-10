@@ -1,13 +1,15 @@
 roll(data, fn::Function) = map(fn, data)
 
-function roll(data, windowspan::Integer, fn::Function; padfirst=false, padlast=false, padding=missing)
+function roll(data, windowspan::Integer, fn::Function; 
+              padfirst=false, padlast=false, padding=missing)
     datarows = nrows(data)
     trimrows = rolledrows(datarows, windowspan)
     trimrows >= windowspan || TrimSpanError(trimrows, windowspan)
     slider = roll_sliding(datarows, windowspan)
 end
 
-function roll(data, windowspan::Integer, tilespan::Integer, fn::Function; padfirst=false, padlast=false, padding=missing)
+function roll(data, windowspan::Integer, tilespan::Integer, fn::Function;
+              padfirst=false, padlast=false, padding=missing)
     datarows = nrows(data)
     trimrows = rolledrows(datarows, windowspan)
     trimrows >= windowspan || TrimSpanError(trimrows, windowspan)
