@@ -1,14 +1,14 @@
 
 function roll(data, windowspan::Integer, fn::Function; padfirst=false, padlast=false, padding=missing)
     datarows = nrows(data)
-    trimrows = rolledrows(windowspan)
+    trimrows = rolledrows(datarows, windowspan)
     trimrows >= windowspan || TrimSpanError(trimrows, windowspan)
     slider = roll_sliding(datarows, windowspan)
 end
 
 function roll(data, windowspan::Integer, tilespan::Integer, fn::Function; padfirst=false, padlast=false, padding=missing)
     datarows = nrows(data)
-    trimrows = rolledrows(windowspan)
+    trimrows = rolledrows(datarows, windowspan)
     trimrows >= windowspan || TrimSpanError(trimrows, windowspan)
     trimrows >= tilespan || TrimTileError(trimrows, tilespan)
 
