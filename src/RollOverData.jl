@@ -21,5 +21,9 @@ export Seq, seq,
 using StatsBase, VectorizedStatistics,
       Accumulators, MovingRings
 
+include("utils.jl")
+include("roll.jl")
+include("run.jl")
+
 end  # RollOverData
 
