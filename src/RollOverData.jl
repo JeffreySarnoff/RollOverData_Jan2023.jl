@@ -22,6 +22,7 @@ using StatsBase, VectorizedStatistics,
       Accumulators, MovingRings
 
 include("utils.jl")
+include("window.jl")
 include("roll.jl")
 include("run.jl")
 
