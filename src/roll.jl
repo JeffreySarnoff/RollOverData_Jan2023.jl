@@ -1,3 +1,4 @@
+roll(data, fn::Function) = map(fn, data)
 
 function roll(data, windowspan::Integer, fn::Function; padfirst=false, padlast=false, padding=missing)
     datarows = nrows(data)
