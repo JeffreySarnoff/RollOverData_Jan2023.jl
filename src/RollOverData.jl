@@ -21,6 +21,7 @@ export Seq, seq,
 using StatsBase, VectorizedStatistics,
       Accumulators, MovingRings
 
+include("exceptions.jl")
 include("utils.jl")
 include("window.jl")
 include("roll.jl")
