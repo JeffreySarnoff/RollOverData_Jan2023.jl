@@ -14,7 +14,7 @@ SpanError(seqlength, windowspan) =
     SpanError("\n\tBad window span ($windowspan) for length $seqlength.\n" )
 
 TileError(seqlength, tilespan) =
-    SpanError("\n\tBad tile span ($tilespan) for length $seqlength.\n" )
+    SpanError("\n\tBad tile span ($tilespan) for trimmed length $seqlength.\n" )
 
 WeightError(nweighting, windowspan) =
     WeightError("\n\twindowspan ($windowspan) != length(weighting) ($nweighting))).\n" )
