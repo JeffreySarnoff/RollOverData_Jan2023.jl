@@ -10,18 +10,33 @@ struct WeightError <: Exception
     msg::String
 end
 
-SpanError(seqlength, windowspan) =
-    SpanError("\n\tBad window span ($windowspan) for length $seqlength.\n" )
+function SpanError(seqlength, windowspan)
+    str = string("Bad window span (", windowspan, ") for length (", seqlength, ").")
+    err = SpanError(str)
+    throw(err)
+end
 
-TrimSpanError(seqlength, windowspan) =
-    SpanError("\n\tBad window span ($windowspan) for trimmed length $seqlength.\n" )
+function TrimSpanError(seqlength, windowspan)
+    str = string("Bad window span (", windowspan, ") for trimmed length (", seqlength, ").")
+    err = SpanError(str)
+    throw(err)
+end
 
-TileError(seqlength, tilespan) =
-    SpanError("\n\tBad tile span ($tilespan) for length $seqlength.\n" )
+function TileError(seqlength, tilespan)
+    str = string("Bad tile span (", tilespan, ") for length (", seqlength, ").")
+    err = TileError(str)
+    throw(err)
+end
 
-TrimTileError(seqlength, tilespan) =
-    SpanError("\n\tBad tile span ($tilespan) for trimmed length $seqlength.\n" )
+function TrimTileError(seqlength, tilespan)
+    str = string("Bad tile span (", tilespan, ") for trimmed length (", seqlength, ").")
+    err = TileError(str)
+    throw(err)
+end
 
-WeightError(nweighting, windowspan) =
-    WeightError("\n\twindowspan ($windowspan) != length(weighting) ($nweighting))).\n" )
+function WeightError(nweighting, windowspan)
+    str = string("Bad weights length (", nweighting, ") for window length (", windowspan, ").")
+    err = WeightError(str)
+    throw(err)
+end
 
