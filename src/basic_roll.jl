@@ -21,6 +21,30 @@
        result = map(i->fn(data[1+i:windowspan+i]), addtospan)
 =#
 
+#=
+    basic windowed function application (with an unwieghted function)
+=#
+
+function basic_roll
+
+for (T1, T2) in ((:T, :(float(T))), (:(Union{Missing,T}), :(Union{Missing,float(T)})))
+  @eval begin  
+
+    # unweighted windowed function application
+
+    function rolling(fun::Function, data::AbstractVector{$T1}, windowspan::Int) where {T}
+        nvals  = nrolled(length(data), windowspan)
+        offset = windowspan - 1
+        result = zeros($T2, nvals)
+
+        @inbounds for idx in eachindex(result)
+            result[idx] = fun( view(data, idx:idx+offset) )
+        end
+
+        return result
+    end
+
+
 function basic_roll(data::D, windowspan::Integer, fn::Function) where {N,T,D<:Union{Vector{T},NTuple{N,T}}}
     nwindows = 0:nrows(data)-windowspan
     map(i->fn(data[1+i:windowspan+i]), nwindows)
@@ -54,3 +78,28 @@ function basic_roll!(data::T, windowspan::Integer, fn::Function, result) where {
 end
 
 
+
+
+    function rolling(fun::Function, data::AbstractVector{$T1}, windowspan::Int) where {T}
+        nvals  = nrolled(length(data), windowspan)
+        offset = windowspan - 1
+        result = zeros($T2, nvals)
+
+        @inbounds for idx in eachindex(result)
+            result[idx] = fun( view(data, idx:idx+offset) )
+        end
+
+        return result
+    end
+
+function basic_roll(data::D, windowspan::Integer, fn::Function) where {N,T,D<:Union{Vector{T},NTuple{N,T}}}
+    window_prespan = windowspan - 1
+    nwindows = nrows(data) - window_prespan
+    result_type = typeof(fn(first(data)))
+    result = zeros(result_type, nwindows)
+
+    for i in nwindows
+        result[i] = fn(data[i:window_prespan+i])
+    end
+    result
+end
