@@ -9,14 +9,14 @@ version = "0.1.0"
 StatsBase = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
 Distances= "b4f34e82-e78d-54a5-968a-f98e89d6e8f7"	
 VectorizedStatistics = "3b853605-1c98-4422-8364-4bd93ee0529e"
-Accumulators = "dfa2bc4b-4f41-456b-b06b-8999b58af168"
+IncrementalAccumulators = "bc631eba-96a2-459e-9fa3-2be216e47de0"
 MovingRings = "3594f790-2b65-4114-995e-a369a7faa39f"
 
 [compat]
 StatsBase = "0.33, 0.34, 0.35, 0.36"
 Distances = "0.10, 0.11, 0.12"
 VectorizedStatistics = "0.4, 0.5, 0.6, 0.7"
-Accumulators = "0.1, 0.2, 0.3"
+IncrementalAccumulators = "0.1, 0.2, 0.3"
 MovingRings = "0.1, 0.2, 0.3"
 julia = "1.8"
 
