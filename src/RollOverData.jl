@@ -24,6 +24,7 @@ using StatsBase, VectorizedStatistics,
 include("exceptions.jl")
 include("utils.jl")
 include("window.jl")
+include("basic_rolls.jl")
 include("roll.jl")
 include("run.jl")
 
