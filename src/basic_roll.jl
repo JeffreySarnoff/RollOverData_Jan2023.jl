@@ -21,3 +21,10 @@
        result = map(i->fn(data[1+i:windowspan+i]), addtospan)
 =#
 
+function basic_roll(data, windowspan::Integer, fn::Function)
+    n = nrows(data)
+    addtospan = 0:n-windowspan
+    map(i->fn(data[1+i:windowspan+i]), addtospan)
+end
+
+    
