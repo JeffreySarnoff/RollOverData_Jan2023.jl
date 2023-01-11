@@ -21,6 +21,8 @@ export Seq, seq,
 using StatsBase, VectorizedStatistics,
       MovingRings, IncrementalAccumulators
 
+include("sequences.jl")
+
 include("exceptions.jl")
 include("utils.jl")
 include("window.jl")
