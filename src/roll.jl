@@ -58,7 +58,6 @@ function roll(data, windowspan::Integer, fn::Function; padding::Pad=NoPad)
     else
        result = zeros(eltype(data), trimrows)
     end
-    if padfirst
        
     slider = roll_sliding(datarows, windowspan)
 end
