@@ -19,7 +19,7 @@ export Seq, seq,
        psnrm, gkldiv
 
 using StatsBase, VectorizedStatistics,
-      Accumulators, MovingRings
+      MovingRings, IncrementalAccumulators
 
 include("exceptions.jl")
 include("utils.jl")
