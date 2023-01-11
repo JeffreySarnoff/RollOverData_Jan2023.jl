@@ -1,4 +1,4 @@
-name = "RollOverData.jl"
+name = "RollOverData"
 uuid = "8e5f5ac9-b367-4c09-ba43-dee536866b7a"
 repo = "github.com/JeffreySarnoff/RollOverData.jl.git"
 authors = ["Jeffrey Sarnoff <jeffrey.sarnoff@gmail.com>", "other contributors"]
