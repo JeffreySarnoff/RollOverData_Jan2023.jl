@@ -1,3 +1,16 @@
+#=
+
+- nrows
+- ncols
+- rts (returned types)
+- nrts (length(rts))
+
+- isview
+- asview
+- viewall
+
+=#
+
 """
     nrows(x)
 
