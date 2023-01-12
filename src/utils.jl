@@ -41,10 +41,10 @@ ncols(x) = isempty(size(x)) ? 1 : size(x)[2]
 
 # views
 
-@inline viewall(data::A) where {T, A<:AbstractArray{1,T}} = view(data, :)
-@inline viewall(data::A) where {T, A<:AbstractArray{2,T}} = view(data, :, :)
-@inline viewall(data::A) where {T, A<:AbstractArray{3,T}} = view(data, :, :, :)
-@inline viewall(data::A) where {T, A<:AbstractArray{4,T}} = view(data, :, :, :, :)
+@inline viewall(data::A) where {T, A<:AbstractArray{T,1}} = view(data, :)
+@inline viewall(data::A) where {T, A<:AbstractArray{T,2}} = view(data, :, :)
+@inline viewall(data::A) where {T, A<:AbstractArray{T,3}} = view(data, :, :, :)
+@inline viewall(data::A) where {T, A<:AbstractArray{T,4}} = view(data, :, :, :, :)
 
 @inline isview(data) = isa(data, SubArray) 
 @inline asview(data) = isview(data) ? data : viewall(data)
