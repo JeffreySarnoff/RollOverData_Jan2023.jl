@@ -26,3 +26,12 @@ ncols(x) = isempty(size(x)) ? 1 : size(x)[2]
 @inline nrts(fn) = max(1, length(rts(fn).parameters))
 @inline nrts(fn, typs) = max(1, length(rts(fn,typs).parameters))
 
+# views
+
+@inline viewall(data::A) where {T, A<:AbstractArray{1,T}} = view(data, :)
+@inline viewall(data::A) where {T, A<:AbstractArray{2,T}} = view(data, :, :)
+@inline viewall(data::A) where {T, A<:AbstractArray{3,T}} = view(data, :, :, :)
+@inline viewall(data::A) where {T, A<:AbstractArray{4,T}} = view(data, :, :, :, :)
+
+@inline isview(data) = isa(data, SubArray) 
+@inline asview(data) = isview(data) ? data : viewall(data)
