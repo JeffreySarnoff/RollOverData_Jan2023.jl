@@ -22,10 +22,24 @@
 =#
 
 #=
+    function application over incrementally given data
+=#
+function simple_incremental_roll(fn::F, data) where {F<:Function}
+    map(fn, data)
+
+#=
     basic windowed function application (with an unwieghted function)
 =#
 
-function basic_roll
+basic_roll(data::A, windowspan::Integer, fn::Function) where {N,T, A<:AbstractArray{T,N}} =
+    basic_roll(asview(data), windowspan, fn)
+
+function basic_roll(data::S, windowspan::Integer, fn::Function) where {N,T, S<:SubArray{T,N}}
+    n = nrows(data)
+    check_trimspan(n, windowspan)
+    
+    
+end
 
 for (T1, T2) in ((:T, :(float(T))), (:(Union{Missing,T}), :(Union{Missing,float(T)})))
   @eval begin  
