@@ -6,9 +6,24 @@ struct TileError <: Exception
     msg::String
 end
 
-struct WeightError <: Exception
+struct WeightsError <: Exception
     msg::String
 end
+
+check_span(seqlength, windowspan) =
+    windowspan > seqlength && SpanError(seqlength, windowspan)
+
+check_trimspan(seqlength, windowspan) =
+    windowspan > (seqlength - windowspan + 1) && TrimSpanError(seqlength, windowspan)
+
+check_tile(seqlength, tilespan) =
+    tilespan > seqlength && TileError(seqlength, tilespan)
+
+check_tilespan(seqlength, tilespan) =
+    tilespan > (seqlength - windowspan + 1) && TrimSpanError(seqlength, tilespan)
+
+check_weights(nweights, windowspan) =
+    nweights != windowspan && WeightsError(nweights, windowspan)
 
 function SpanError(seqlength, windowspan)
     str = string("Bad window span (", windowspan, ") for length (", seqlength, ").")
@@ -34,9 +49,9 @@ function TrimTileError(seqlength, tilespan)
     throw(err)
 end
 
-function WeightError(nweighting, windowspan)
-    str = string("Bad weights length (", nweighting, ") for window length (", windowspan, ").")
-    err = WeightError(str)
+function WeightsError(nweighting, windowspan)
+    str = string("Bad weights length (", nweighting, ") != for window length (", windowspan, ").")
+    err = WeightsError(str)
     throw(err)
 end
 
