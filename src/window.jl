@@ -1,3 +1,11 @@
+#=
+   datarows = trimmedrows(windowspan) + rolledrows(datarows, windowspan)
+
+   rowcounts(datarows, windowspan) = (givenrows = datarows, 
+                                      windowedrows = rolledrows(datarows, windowspan), 
+                                      droppedrows = trimmedrows(windowspan))
+=#
+
 rolledrows(datarows, windowspan) = datarows - trimmedrows(windowspan)
 trimmedrows(windowspan) = windowspan - 1
 
