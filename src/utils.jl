@@ -31,7 +31,8 @@ ncols(x::AbstractVector) = 1
 ncols(x::AbstractArray) = size(x)[2]
 ncols(x) = isempty(size(x)) ? 1 : size(x)[2]
 
-# returned types (rough)
+# returned types (rough) and tally(returned types)
+# more specific when `typs` are provided
 
 @inline rts(fn) = Base.return_types(fn)[max(1, end-1)]
 @inline rts(fn, typs) = Base.return_types(fn, typs)[max(1, end-1)]
